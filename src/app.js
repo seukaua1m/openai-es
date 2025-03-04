@@ -11,15 +11,12 @@ const PORT = process.env.PORT || 3000;
 
 // CORS configuration
 const corsOptions = {
-    origin: [
-        'http://localhost:3000',
-        'http://localhost:3001',
-        'https://api.finflow.shop'
-    ],
+    origin: '*', // Permite qualquer origem
     methods: ['GET', 'POST'],
     allowedHeaders: ['Content-Type', 'Authorization'],
     optionsSuccessStatus: 200
 };
+
 
 // Apply CORS middleware
 app.use(cors(corsOptions));
