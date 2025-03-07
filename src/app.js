@@ -9,8 +9,21 @@ require('dotenv').config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+const allowedOrigins = [
+    'https://br.finflow.shop',
+    'https://es.finflow.shop',
+    'https://en.finflow.shop'
+];
+
+// CORS configuration
 const corsOptions = {
-    origin: '*', // Permite qualquer origem
+    origin: function (origin, callback) {
+        if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, true); // Permite a requisição
+        } else {
+            callback(new Error('Not allowed by CORS')); // Bloqueia requisições não permitidas
+        }
+    },
     methods: ['GET', 'POST'],
     allowedHeaders: ['Content-Type', 'Authorization'],
     optionsSuccessStatus: 200
