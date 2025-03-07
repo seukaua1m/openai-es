@@ -11,12 +11,11 @@ const PORT = process.env.PORT || 3000;
 
 // CORS configuration
 const corsOptions = {
-    origin: '*', // Permite qualquer origem
+    origin: 'https://br.finflow.shop', // Permite apenas essa origem
     methods: ['GET', 'POST'],
     allowedHeaders: ['Content-Type', 'Authorization'],
     optionsSuccessStatus: 200
 };
-
 
 // Apply CORS middleware
 app.use(cors(corsOptions));
