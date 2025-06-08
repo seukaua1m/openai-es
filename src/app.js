@@ -17,19 +17,12 @@ const allowedOrigins = [
 
 // CORS configuration
 const corsOptions = {
-    origin: function (origin, callback) {
-        if (!origin || allowedOrigins.includes(origin)) {
-            callback(null, true); // Permite a requisição
-        } else {
-            callback(new Error('Not allowed by CORS')); // Bloqueia requisições não permitidas
-        }
-    },
-    methods: ['GET', 'POST'],
+    origin: '*', // Permite qualquer origem
+    methods: ['GET', 'POST'], // ou ['*'] para todos os métodos
     allowedHeaders: ['Content-Type', 'Authorization'],
     optionsSuccessStatus: 200
 };
 
-// Apply CORS middleware
 app.use(cors(corsOptions));
 
 
