@@ -9,20 +9,6 @@ require('dotenv').config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-const allowedOrigins = [
-    'https://br.finflow.shop',
-    'https://es.finflow.shop',
-    'https://en.finflow.shop'
-];
-
-// CORS configuration
-const corsOptions = {
-    origin: '*', // Permite qualquer origem
-    methods: ['GET', 'POST'], // ou ['*'] para todos os métodos
-    allowedHeaders: ['Content-Type', 'Authorization'],
-    optionsSuccessStatus: 200
-};
-
 app.use(cors(corsOptions));
 
 
